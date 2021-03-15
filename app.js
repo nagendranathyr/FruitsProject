@@ -50,13 +50,17 @@ const sapota = new Fruit( {
 
 
 //Reading data from MongoDB.
-Fruit.find(function(err, fruits) {
+Fruit.find(function(err, fruits) { //Fruit.find returns array of documents in the collection fruits.
   if(err)
   {
     console.log(err);
   }
   else {
     console.log(fruits);
+    mongoose.connection.close();
+    fruits.forEach(function(item, index){
+      console.log(item.name, index);
+    })
   }
 });
 //fruits here is whatever find gets from DB related to fruits collection.
