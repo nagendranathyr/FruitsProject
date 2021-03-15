@@ -56,7 +56,6 @@ Fruit.find(function(err, fruits) { //Fruit.find returns array of documents in th
     console.log(err);
   }
   else {
-    console.log(fruits);
     mongoose.connection.close();
     fruits.forEach(function(item, index){
       console.log(item.name, index);
